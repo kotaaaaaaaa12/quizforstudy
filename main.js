@@ -12,13 +12,16 @@ document.addEventListener('DOMContentLoaded', () => {
 function displaySubjectButtons() {
     const subjectButtons = document.getElementById('subjectButtons');
     const subjects = [
+        { id: 'kanjiButton', name: '漢字' },
+        { id: 'kojiseigoButton', name: '古事成語' },
+        { id: 'languageButton', name: '語感の豊かな言葉' },
+        { id: 'mathButton', name: '数学' },
+        { id: 'elementButton', name: '元素記号' },
+        { id: 'chemicalFormulaButton', name: '化学式' },
+        { id: 'chemicalReactionButton', name: '化学反応式' },
+        { id: 'geologyButton', name: '地層' },
         { id: 'geographyButton', name: '地理' },
         { id: 'historyButton', name: '歴史' },
-        { id: 'mathButton', name: '数学' },
-        { id: 'scienceButton', name: '理科' },
-        { id: 'languageButton', name: '語感の豊かな言葉' },
-        { id: 'elementButton', name: '元素' },
-        { id: 'kanjiButton', name: '漢字' },
         { id: 'englishButton', name: '英単語' },
     ];
 
@@ -38,26 +41,35 @@ function displaySubjectButtons() {
 function fetchQuestions(subjectId) {
     let jsonFile;
     switch (subjectId) {
+        case 'kanjiButton':
+            jsonFile = 'json/kanji.json';
+            break;
+        case 'kojiseigoButton':
+            jsonFile = 'json/kojiseigo.json';
+            break;
+        case 'languageButton':
+            jsonFile = 'json/vivid_words.json';
+            break;
+        case 'mathButton':
+            jsonFile = 'json/math.json';
+            break;
+        case 'elementButton':
+            jsonFile = 'json/element.json';
+            break;
+        case 'chemicalFormulaButton':
+            jsonFile = 'json/chemical_formula.json';
+            break;
+        case 'chemicalReactionButton':
+            jsonFile = 'json/chemical_reaction.json';
+            break;
+        case 'geologyButton':
+            jsonFile = 'json/geology.json';
+            break;
         case 'geographyButton':
             jsonFile = 'json/geography.json';
             break;
         case 'historyButton':
             jsonFile = 'json/history.json';
-            break;
-        case 'mathButton':
-            jsonFile = 'json/math.json';
-            break;
-        case 'scienceButton':
-            jsonFile = 'json/science.json';
-            break;
-        case 'languageButton':
-            jsonFile = 'json/vivid_words.json';
-            break;
-        case 'elementButton':
-            jsonFile = 'json/element.json';
-            break;
-        case 'kanjiButton':
-            jsonFile = 'json/kanji.json';
             break;
         case 'englishButton':
             jsonFile = 'json/english.json';
