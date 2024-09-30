@@ -30,6 +30,7 @@ function displaySubjectButtons() {
         button.addEventListener('click', () => {
             fetchQuestions(subject.id);
             subjectButtons.style.display = 'none'; // 教科選択ボタンを非表示にする
+            document.getElementById('questionCountSection').style.display = 'block'; // 問題数指定ボックスを表示
         });
         subjectButtons.appendChild(button);
     });
@@ -72,7 +73,6 @@ function fetchQuestions(subjectId) {
             quizData = data;
             document.getElementById('maxQuestions').textContent = quizData.length;
             document.getElementById('numQuestions').max = quizData.length;
-            document.getElementById('questionCountSection').style.display = 'block';
         })
         .catch(error => {
             console.error('エラーが発生しました:', error);
@@ -181,6 +181,9 @@ function finishQuiz() {
 
     if (mistakeQuestions.length > 0) {
         document.getElementById('retryMistakes').style.display = 'block';
+        document.getElementById('retryMistakes').onclick = function() {
+            startQuiz(mistakeQuestions); // 間違えた問題を再挑戦
+        };
     } else {
         document.getElementById('resetQuiz').style.display = 'block'; // 最初に戻るボタンを表示
     }
@@ -194,5 +197,5 @@ function calculateTimeTaken(start, end) {
 }
 
 function resetQuiz() {
-    location.reload(); // ページを再読み込みする
+    location.reload();
 }
