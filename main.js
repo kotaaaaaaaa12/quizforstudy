@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
 function displaySubjectButtons() {
     const subjectButtons = document.getElementById('subjectButtons');
 
-    // ボタンを生成
     const subjects = [
         { id: 'geographyButton', name: '地理' },
         { id: 'historyButton', name: '歴史' },
@@ -51,7 +50,7 @@ function fetchQuestions(subjectId) {
             jsonFile = 'json/science.json';
             break;
         case 'languageButton':
-            jsonFile = 'json/language.json';
+            jsonFile = 'json/vivid_words.json';
             break;
         case 'elementButton':
             jsonFile = 'json/element.json';
@@ -71,25 +70,24 @@ function fetchQuestions(subjectId) {
         .then(data => {
             quizData = data;
             document.getElementById('maxQuestions').textContent = quizData.length;
-            document.getElementById('numQuestions').max = quizData.length; // 最大問題数を設定
-            document.getElementById('numQuestions').style.display = 'inline';
-            document.getElementById('questionCountLabel').style.display = 'inline';
-            document.getElementById('startQuiz').style.display = 'inline';
-            document.getElementById('startQuiz').onclick = () => {
-                const numQuestions = parseInt(document.getElementById('numQuestions').value);
-                if (numQuestions < 1) {
-                    alert('問題数は1以上にしてください。');
-                    return;
-                }
-                startTime = new Date(); // クイズの開始時間を記録
-                correctAnswers = 0; // 正解数のリセット
-                startQuiz(selectRandomQuestions(numQuestions));
-            };
+            document.getElementById('numQuestions').max = quizData.length;
+            document.getElementById('questionCountSection').style.display = 'block';
         })
         .catch(error => {
             console.error('エラーが発生しました:', error);
         });
 }
+
+document.getElementById('startQuiz').addEventListener('click', () => {
+    const numQuestions = parseInt(document.getElementById('numQuestions').value);
+    if (numQuestions < 1) {
+        alert('問題数は1以上にしてください。');
+        return;
+    }
+    startTime = new Date();
+    correctAnswers = 0;
+    startQuiz(selectRandomQuestions(numQuestions));
+});
 
 function selectRandomQuestions(numQuestions) {
     const selectedQuestions = [];
@@ -144,7 +142,7 @@ function checkAnswer(correctAnswer) {
     if (answerInput === correctAnswer) {
         feedback.textContent = '⭕';
         feedback.classList.add('correct');
-        correctAnswers++; // 正解数をカウント
+        correctAnswers++;
         correctSound.play();
     } else {
         feedback.textContent = '❌';
@@ -165,7 +163,7 @@ function checkAnswer(correctAnswer) {
 }
 
 function finishQuiz() {
-    endTime = new Date(); // クイズの終了時間を記録
+    endTime = new Date();
     const timeTaken = calculateTimeTaken(startTime, endTime);
 
     const quizContainer = document.getElementById('quizContainer');
@@ -186,7 +184,7 @@ function finishQuiz() {
 }
 
 function calculateTimeTaken(start, end) {
-    const timeDiff = end - start; // ミリ秒単位の差を取得
+    const timeDiff = end - start;
     const minutes = Math.floor(timeDiff / 1000 / 60);
     const seconds = Math.floor((timeDiff / 1000) % 60);
     return `${minutes}分${seconds}秒`;
