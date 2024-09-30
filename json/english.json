@@ -1,0 +1,14 @@
+[
+    {
+        "question": "appleの意味は何ですか？",
+        "answer": ["リンゴ"]
+    },
+    {
+        "question": "bookの意味は何ですか？",
+        "answer": ["本"]
+    },
+    {
+        "question": "helloの意味は何ですか？",
+        "answer": ["こんにちは"]
+    }
+]
