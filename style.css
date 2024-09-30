@@ -1,102 +1,83 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #e0f7fa;
+    background-color: #e0f7fa; /* 明るい水色の背景 */
+    color: #333; /* ダークグレーのテキスト */
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
 
-.container {
-    text-align: center;
+#app {
+    max-width: 600px;
+    margin: 50px auto;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #ffffff; /* 白い背景 */
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 軽い影 */
 }
 
 h1 {
-    font-size: 24px;
-    color: #00796b;
-    margin-bottom: 20px;
+    text-align: center;
+    color: #00796b; /* 深い水色 */
 }
 
 label {
-    font-size: 18px;
-    color: #004d40;
+    font-size: 1.2em;
 }
 
 input[type="number"] {
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #00796b;
+    width: 50px;
+    padding: 5px;
+    margin-left: 10px;
+    border: 1px solid #00796b; /* 深い水色のボーダー */
     border-radius: 5px;
-    background-color: #e0f2f1;
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #00bcd4;
-    color: white;
+    padding: 10px 15px;
+    margin: 10px 5px;
+    background-color: #00796b; /* 深い水色のボタン */
+    color: white; /* 白いテキスト */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1em;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #00838f;
+    background-color: #004d40; /* 濃い水色 */
 }
 
 #quizContainer {
     margin-top: 20px;
-}
-
-.question {
-    background-color: #b2ebf2;
+    padding: 15px;
+    border: 1px solid #00796b;
     border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.question p {
-    margin: 0;
-    color: #004d40;
-}
-
-.answer-input {
-    padding: 8px;
-    width: 100%;
-    margin-top: 10px;
+    background-color: #e0f2f1; /* 薄い水色 */
 }
 
 .feedback {
-    font-size: 48px;
+    font-weight: bold;
     margin-top: 10px;
 }
 
 .correct {
-    color: green;
+    color: #388e3c; /* 緑色 */
 }
 
 .incorrect {
-    color: red;
+    color: #d32f2f; /* 赤色 */
 }
 
 .correct-answer {
-    margin-top: 10px;
-    color: #004d40;
-    font-size: 16px;
+    margin-top: 5px;
+    font-style: italic;
+    color: #f57c00; /* オレンジ色 */
 }
 
 #stats {
     margin-top: 20px;
-    font-size: 18px;
-    color: #004d40;
+    padding: 10px;
+    background-color: #e0f7fa;
+    border-radius: 5px;
 }
