@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>テスト勉強</title>
+    <title>テストのためのクイズアプリ</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>テスト勉強</h1>
+        <h1>テストのためのクイズアプリ</h1>
         
         <div id="subjectSelection">
             <h2>教科を選択してください:</h2>
@@ -24,6 +24,7 @@
         <div id="quizContainer"></div>
         <div id="stats" style="display:none;"></div>
         <button id="retryMistakes" style="display:none;">間違えた問題を再挑戦</button>
+        <button id="resetQuiz" style="display:none;" onclick="resetQuiz()">最初に戻る</button>
     </div>
     <audio id="correctSound" src="mp3/correct.mp3"></audio>
     <audio id="incorrectSound" src="mp3/incorrect.mp3"></audio>
