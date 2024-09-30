@@ -1,60 +1,104 @@
-let quizData = {};
+let quizData = [];
 let currentQuestions = [];
 let mistakeQuestions = [];
 let currentIndex = 0;
 let correctAnswers = 0;
 let startTime, endTime;
 
-document.getElementById('setQuestionNum').addEventListener('click', function() {
-    const numQuestions = parseInt(document.getElementById('numQuestions').value);
-    if (numQuestions < 1 || numQuestions > 30) {
-        alert('1以上30以下の問題数を指定してください。');
-        return;
-    }
-    startTime = new Date(); // クイズの開始時間を記録
-    correctAnswers = 0; // 正解数のリセット
-    displaySubjectButtons(numQuestions);
+document.addEventListener('DOMContentLoaded', () => {
+    displaySubjectButtons();
 });
 
-document.getElementById('retryMistakes').addEventListener('click', function() {
-    startQuiz(mistakeQuestions);
-});
-
-function displaySubjectButtons(numQuestions) {
-    const subjects = ['geography', 'history', 'math', 'elements', 'earthscience', 'idioms', 'kanji', 'english', 'vivid_words'];
+function displaySubjectButtons() {
     const subjectButtons = document.getElementById('subjectButtons');
-    subjectButtons.innerHTML = ''; // ボタンをリセット
+
+    // ボタンを生成
+    const subjects = [
+        { id: 'geographyButton', name: '地理' },
+        { id: 'historyButton', name: '歴史' },
+        { id: 'mathButton', name: '数学' },
+        { id: 'scienceButton', name: '理科' },
+        { id: 'languageButton', name: '語感の豊かな言葉' },
+        { id: 'elementButton', name: '元素' },
+        { id: 'kanjiButton', name: '漢字' },
+        { id: 'englishButton', name: '英単語' },
+    ];
 
     subjects.forEach(subject => {
         const button = document.createElement('button');
-        button.textContent = subject.charAt(0).toUpperCase() + subject.slice(1);
-        button.addEventListener('click', () => loadQuestions(subject, numQuestions));
+        button.id = subject.id;
+        button.textContent = subject.name;
+        button.addEventListener('click', () => {
+            fetchQuestions(subject.id);
+        });
         subjectButtons.appendChild(button);
     });
-
-    subjectButtons.style.display = 'block'; // ボタンを表示
 }
 
-function loadQuestions(subject, numQuestions) {
-    fetch(`json/${subject}.json`)
+function fetchQuestions(subjectId) {
+    let jsonFile;
+    switch (subjectId) {
+        case 'geographyButton':
+            jsonFile = 'json/geography.json';
+            break;
+        case 'historyButton':
+            jsonFile = 'json/history.json';
+            break;
+        case 'mathButton':
+            jsonFile = 'json/math.json';
+            break;
+        case 'scienceButton':
+            jsonFile = 'json/science.json';
+            break;
+        case 'languageButton':
+            jsonFile = 'json/language.json';
+            break;
+        case 'elementButton':
+            jsonFile = 'json/element.json';
+            break;
+        case 'kanjiButton':
+            jsonFile = 'json/kanji.json';
+            break;
+        case 'englishButton':
+            jsonFile = 'json/english.json';
+            break;
+        default:
+            return;
+    }
+
+    fetch(jsonFile)
         .then(response => response.json())
         .then(data => {
-            quizData[subject] = data;
-            startQuiz(selectRandomQuestions(numQuestions, data));
+            quizData = data;
+            document.getElementById('maxQuestions').textContent = quizData.length;
+            document.getElementById('numQuestions').max = quizData.length; // 最大問題数を設定
+            document.getElementById('numQuestions').style.display = 'inline';
+            document.getElementById('questionCountLabel').style.display = 'inline';
+            document.getElementById('startQuiz').style.display = 'inline';
+            document.getElementById('startQuiz').onclick = () => {
+                const numQuestions = parseInt(document.getElementById('numQuestions').value);
+                if (numQuestions < 1) {
+                    alert('問題数は1以上にしてください。');
+                    return;
+                }
+                startTime = new Date(); // クイズの開始時間を記録
+                correctAnswers = 0; // 正解数のリセット
+                startQuiz(selectRandomQuestions(numQuestions));
+            };
         })
         .catch(error => {
             console.error('エラーが発生しました:', error);
         });
 }
 
-function selectRandomQuestions(numQuestions, data) {
+function selectRandomQuestions(numQuestions) {
     const selectedQuestions = [];
     const usedIndices = new Set();
     while (selectedQuestions.length < numQuestions) {
-        const randomIndex = Math.floor(Math.random() * data.length);
+        const randomIndex = Math.floor(Math.random() * quizData.length);
         if (!usedIndices.has(randomIndex)) {
             usedIndices.add(randomIndex);
-            selectedQuestions.push(data[randomIndex]);
+            selectedQuestions.push(quizData[randomIndex]);
         }
     }
     return selectedQuestions;
@@ -81,7 +125,7 @@ function renderQuestion() {
         questionElement.innerHTML = `
             <p>${currentIndex + 1}. ${questionItem.question}</p>
             <input type="text" class="answer-input" id="answerInput">
-            <button onclick="checkAnswer('${JSON.stringify(questionItem.answer)}')">解答</button>
+            <button onclick="checkAnswer('${questionItem.answer}')">解答</button>
         `;
         quizContainer.appendChild(questionElement);
     } else {
@@ -97,42 +141,22 @@ function checkAnswer(correctAnswer) {
     const correctSound = document.getElementById('correctSound');
     const incorrectSound = document.getElementById('incorrectSound');
 
-    if (Array.isArray(correctAnswer)) {
-        if (correctAnswer.includes(answerInput)) {
-            feedback.textContent = '⭕';
-            feedback.classList.add('correct');
-            correctAnswers++; // 正解数をカウント
-            correctSound.play();
-        } else {
-            feedback.textContent = '❌';
-            feedback.classList.add('incorrect');
-            incorrectSound.play();
-
-            const correctAnswerElement = document.createElement('div');
-            correctAnswerElement.classList.add('correct-answer');
-            correctAnswerElement.textContent = `正しい答え: ${correctAnswer.join(' / ')}`;
-            document.querySelector('.question').appendChild(correctAnswerElement);
-
-            mistakeQuestions.push(currentQuestions[currentIndex]);
-        }
+    if (answerInput === correctAnswer) {
+        feedback.textContent = '⭕';
+        feedback.classList.add('correct');
+        correctAnswers++; // 正解数をカウント
+        correctSound.play();
     } else {
-        if (answerInput === correctAnswer) {
-            feedback.textContent = '⭕';
-            feedback.classList.add('correct');
-            correctAnswers++; // 正解数をカウント
-            correctSound.play();
-        } else {
-            feedback.textContent = '❌';
-            feedback.classList.add('incorrect');
-            incorrectSound.play();
+        feedback.textContent = '❌';
+        feedback.classList.add('incorrect');
+        incorrectSound.play();
 
-            const correctAnswerElement = document.createElement('div');
-            correctAnswerElement.classList.add('correct-answer');
-            correctAnswerElement.textContent = `正しい答え: ${correctAnswer}`;
-            document.querySelector('.question').appendChild(correctAnswerElement);
+        const correctAnswerElement = document.createElement('div');
+        correctAnswerElement.classList.add('correct-answer');
+        correctAnswerElement.textContent = `正しい答え: ${correctAnswer}`;
+        document.querySelector('.question').appendChild(correctAnswerElement);
 
-            mistakeQuestions.push(currentQuestions[currentIndex]);
-        }
+        mistakeQuestions.push(currentQuestions[currentIndex]);
     }
 
     document.querySelector('.question').appendChild(feedback);
