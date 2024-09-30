@@ -7,8 +7,8 @@ let startTime, endTime;
 
 document.getElementById('startQuiz').addEventListener('click', function() {
     const numQuestions = parseInt(document.getElementById('numQuestions').value);
-    startTime = new Date(); 
-    correctAnswers = 0;
+    startTime = new Date(); // クイズの開始時間を記録
+    correctAnswers = 0; // 正解数のリセット
     fetchQuestions(numQuestions);
 });
 
@@ -21,6 +21,10 @@ function fetchQuestions(numQuestions) {
         .then(response => response.json())
         .then(data => {
             quizData = data;
+            if (numQuestions > quizData.length) {
+                alert(`問題数が不足しています。最大で ${quizData.length} 問までしか出題できません。`);
+                return; // 処理を中断
+            }
             startQuiz(selectRandomQuestions(numQuestions));
         })
         .catch(error => {
@@ -62,13 +66,9 @@ function renderQuestion() {
         questionElement.innerHTML = `
             <p>${currentIndex + 1}. ${questionItem.question}</p>
             <input type="text" class="answer-input" id="answerInput">
-            <button id="submitAnswer">解答</button>
+            <button onclick="checkAnswer('${questionItem.answer}')">解答</button>
         `;
         quizContainer.appendChild(questionElement);
-
-        document.getElementById('submitAnswer').addEventListener('click', function() {
-            checkAnswer(questionItem.answer);
-        });
     } else {
         finishQuiz();
     }
@@ -85,7 +85,7 @@ function checkAnswer(correctAnswer) {
     if (answerInput === correctAnswer) {
         feedback.textContent = '⭕';
         feedback.classList.add('correct');
-        correctAnswers++;
+        correctAnswers++; // 正解数をカウント
         correctSound.play();
     } else {
         feedback.textContent = '❌';
@@ -106,7 +106,7 @@ function checkAnswer(correctAnswer) {
 }
 
 function finishQuiz() {
-    endTime = new Date();
+    endTime = new Date(); // クイズの終了時間を記録
     const timeTaken = calculateTimeTaken(startTime, endTime);
 
     const quizContainer = document.getElementById('quizContainer');
@@ -127,7 +127,7 @@ function finishQuiz() {
 }
 
 function calculateTimeTaken(start, end) {
-    const timeDiff = end - start;
+    const timeDiff = end - start; // ミリ秒単位の差を取得
     const minutes = Math.floor(timeDiff / 1000 / 60);
     const seconds = Math.floor((timeDiff / 1000) % 60);
     return `${minutes}分${seconds}秒`;
