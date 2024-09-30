@@ -1,0 +1,54 @@
+[
+    {
+      "question": "元素記号を答えよ「カルシウム」",
+      "answer": ["Ca"]
+    },
+    {
+      "question": "元素記号を答えよ「銅」",
+      "answer": ["Cu"]
+    },
+    {
+      "question": "元素記号を答えよ「鉄」",
+      "answer": ["Fe"]
+    },
+    {
+      "question": "元素記号を答えよ「ナトリウム」",
+      "answer": ["Na"]
+    },
+    {
+      "question": "元素記号を答えよ「マグネシウム」",
+      "answer": ["Mg"]
+    },
+    {
+      "question": "元素記号を答えよ「酸素」",
+      "answer": ["O"]
+    },
+    {
+      "question": "元素記号を答えよ「水素」",
+      "answer": ["H"]
+    },
+    {
+      "question": "元素記号を答えよ「銀」",
+      "answer": ["Ag"]
+    },
+    {
+      "question": "元素記号を答えよ「亜鉛」",
+      "answer": ["Zn"]
+    },
+    {
+      "question": "元素記号を答えよ「塩素」",
+      "answer": ["Cl"]
+    },
+    {
+      "question": "元素記号を答えよ「窒素」",
+      "answer": ["N"]
+    },
+    {
+      "question": "元素記号を答えよ「硫黄」",
+      "answer": ["S"]
+    },
+    {
+      "question": "元素記号を答えよ「炭素」",
+      "answer": ["C"]
+    }
+  ]
