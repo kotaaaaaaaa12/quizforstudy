@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>クイズアプリ</title>
+    <title>テスト勉強</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>クイズアプリ</h1>
+        <h1>テスト勉強</h1>
         
         <div id="subjectSelection">
             <h2>教科を選択してください:</h2>
             <div id="subjectButtons"></div>
         </div>
         
-        <label for="numQuestions" id="questionCountLabel" style="display:none;">出題数を指定してください（最大 <span id="maxQuestions">0</span> 問）:</label>
-        <input type="number" id="numQuestions" value="1" min="1" style="display:none;">
-        <button id="startQuiz" style="display:none;">クイズ開始</button>
-        
+        <div id="questionCountSection" style="display:none;">
+            <label for="numQuestions" id="questionCountLabel">出題数を指定してください（最大 <span id="maxQuestions">0</span> 問）:</label>
+            <input type="number" id="numQuestions" value="1" min="1" style="display:inline;">
+            <button id="startQuiz" style="display:inline;">クイズ開始</button>
+        </div>
+
         <div id="quizContainer"></div>
         <div id="stats" style="display:none;"></div>
         <button id="retryMistakes" style="display:none;">間違えた問題を再挑戦</button>
     </div>
     <audio id="correctSound" src="mp3/correct.mp3"></audio>
     <audio id="incorrectSound" src="mp3/incorrect.mp3"></audio>
-    <script src="script.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
