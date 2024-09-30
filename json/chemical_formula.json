@@ -1,0 +1,54 @@
+[
+    {
+        "question": "次の化学式を答えよ「酸素分子」",
+        "answer": "O2"
+    },
+    {
+        "question": "次の化学式を答えよ「水素分子」",
+        "answer": "H2"
+    },
+    {
+        "question": "次の化学式を答えよ「塩素分子」",
+        "answer": "Cl2"
+    },
+    {
+        "question": "次の化学式を答えよ「窒素分子」",
+        "answer": "N2"
+    },
+    {
+        "question": "次の化学式を答えよ「アンモニア」",
+        "answer": "NH3"
+    },
+    {
+        "question": "次の化学式を答えよ「二酸化炭素」",
+        "answer": "CO2"
+    },
+    {
+        "question": "次の化学式を答えよ「水」",
+        "answer": "H2O"
+    },
+    {
+        "question": "次の化学式を答えよ「塩化水素(塩酸)」",
+        "answer": "HCl"
+    },
+    {
+        "question": "次の化学式を答えよ「硫化鉄」",
+        "answer": "FeS"
+    },
+    {
+        "question": "次の化学式を答えよ「酸化マグネシウム」",
+        "answer": "MgO"
+    },
+    {
+        "question": "次の化学式を答えよ「酸化銅」",
+        "answer": "CuO"
+    },
+    {
+        "question": "次の化学式を答えよ「塩化ナトリウム」",
+        "answer": "NaCl"
+    },
+    {
+        "question": "次の化学式を答えよ「酸化銀」",
+        "answer": "Ag2O"
+    }
+]
