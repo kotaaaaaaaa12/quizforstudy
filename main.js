@@ -12,17 +12,18 @@ document.addEventListener('DOMContentLoaded', () => {
 function displaySubjectButtons() {
     const subjectButtons = document.getElementById('subjectButtons');
     const subjects = [
-        { id: 'kanjiButton', name: '漢字' },
-        { id: 'kojiseigoButton', name: '古事成語' },
-        { id: 'languageButton', name: '語感の豊かな言葉' },
-        { id: 'mathButton', name: '数学' },
-        { id: 'elementButton', name: '元素記号' },
-        { id: 'chemicalFormulaButton', name: '化学式' },
-        { id: 'chemicalReactionButton', name: '化学反応式' },
-        { id: 'geologyButton', name: '地層' },
-        { id: 'geographyButton', name: '地理' },
-        { id: 'historyButton', name: '歴史' },
-        { id: 'englishButton', name: '英単語' },
+        { id: 'kanjiButton', name: '漢字', json: 'json/kanji.json' },
+        { id: 'kojiseigoButton', name: '古事成語', json: 'json/kojiseigo.json' },
+        { id: 'vividWordsButton', name: '語感の豊かな言葉', json: 'json/vivid_words.json' },
+        { id: 'mathButton', name: '数学', json: 'json/math.json' },
+        { id: 'elementButton', name: '元素記号', json: 'json/element.json' },
+        { id: 'chemicalFormulaButton', name: '化学式', json: 'json/chemical_formula.json' },
+        { id: 'chemicalReactionButton', name: '化学反応式', json: 'json/chemical_reaction.json' },
+        { id: 'chemicalTermsButton', name: '化学の用語', json: 'json/chemical_terms.json' },
+        { id: 'stratumTermsButton', name: '地層の用語', json: 'json/stratum_terms.json' },
+        { id: 'geographyButton', name: '地理', json: 'json/geography.json' },
+        { id: 'historyButton', name: '歴史', json: 'json/history.json' },
+        { id: 'englishButton', name: '英単語', json: 'json/english.json' }
     ];
 
     subjects.forEach(subject => {
@@ -30,7 +31,7 @@ function displaySubjectButtons() {
         button.id = subject.id;
         button.textContent = subject.name;
         button.addEventListener('click', () => {
-            fetchQuestions(subject.id);
+            fetchQuestions(subject.json);
             subjectButtons.style.display = 'none';
             document.getElementById('questionCountSection').style.display = 'block';
         });
@@ -38,46 +39,7 @@ function displaySubjectButtons() {
     });
 }
 
-function fetchQuestions(subjectId) {
-    let jsonFile;
-    switch (subjectId) {
-        case 'kanjiButton':
-            jsonFile = 'json/kanji.json';
-            break;
-        case 'kojiseigoButton':
-            jsonFile = 'json/kojiseigo.json';
-            break;
-        case 'languageButton':
-            jsonFile = 'json/vivid_words.json';
-            break;
-        case 'mathButton':
-            jsonFile = 'json/math.json';
-            break;
-        case 'elementButton':
-            jsonFile = 'json/element.json';
-            break;
-        case 'chemicalFormulaButton':
-            jsonFile = 'json/chemical_formula.json';
-            break;
-        case 'chemicalReactionButton':
-            jsonFile = 'json/chemical_reaction.json';
-            break;
-        case 'geologyButton':
-            jsonFile = 'json/geology.json';
-            break;
-        case 'geographyButton':
-            jsonFile = 'json/geography.json';
-            break;
-        case 'historyButton':
-            jsonFile = 'json/history.json';
-            break;
-        case 'englishButton':
-            jsonFile = 'json/english.json';
-            break;
-        default:
-            return;
-    }
-
+function fetchQuestions(jsonFile) {
     fetch(jsonFile)
         .then(response => response.json())
         .then(data => {
