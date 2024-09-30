@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function displaySubjectButtons() {
     const subjectButtons = document.getElementById('subjectButtons');
-
     const subjects = [
         { id: 'geographyButton', name: '地理' },
         { id: 'historyButton', name: '歴史' },
@@ -29,8 +28,8 @@ function displaySubjectButtons() {
         button.textContent = subject.name;
         button.addEventListener('click', () => {
             fetchQuestions(subject.id);
-            subjectButtons.style.display = 'none'; // 教科選択ボタンを非表示にする
-            document.getElementById('questionCountSection').style.display = 'block'; // 問題数指定ボックスを表示
+            subjectButtons.style.display = 'none';
+            document.getElementById('questionCountSection').style.display = 'block';
         });
         subjectButtons.appendChild(button);
     });
@@ -87,7 +86,7 @@ document.getElementById('startQuiz').addEventListener('click', () => {
     }
     startTime = new Date();
     correctAnswers = 0;
-    document.getElementById('questionCountSection').style.display = 'none'; // 問題数指定ボックスを非表示にする
+    document.getElementById('questionCountSection').style.display = 'none';
     startQuiz(selectRandomQuestions(numQuestions));
 });
 
@@ -110,7 +109,7 @@ function startQuiz(questions) {
     currentIndex = 0;
     document.getElementById('quizContainer').innerHTML = '';
     document.getElementById('retryMistakes').style.display = 'none';
-    document.getElementById('resetQuiz').style.display = 'none'; // 最初に戻るボタンを非表示にする
+    document.getElementById('resetQuiz').style.display = 'none';
     document.getElementById('stats').style.display = 'none';
     renderQuestion();
 }
@@ -182,10 +181,10 @@ function finishQuiz() {
     if (mistakeQuestions.length > 0) {
         document.getElementById('retryMistakes').style.display = 'block';
         document.getElementById('retryMistakes').onclick = function() {
-            startQuiz(mistakeQuestions); // 間違えた問題を再挑戦
+            startQuiz(mistakeQuestions);
         };
     } else {
-        document.getElementById('resetQuiz').style.display = 'block'; // 最初に戻るボタンを表示
+        document.getElementById('resetQuiz').style.display = 'block';
     }
 }
 
@@ -198,4 +197,5 @@ function calculateTimeTaken(start, end) {
 
 function resetQuiz() {
     location.reload();
+    displaySubjectButtons();
 }
