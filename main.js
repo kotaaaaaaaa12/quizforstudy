@@ -24,7 +24,7 @@ function displaySubjectButtons() {
         { id: 'geologyTermsButton', name: '地層の用語', jsonFile: 'json/geology_terms.json' },
         { id: 'geographyButton', name: '地理', jsonFile: 'json/geography.json' },
         { id: 'historyButton', name: '歴史', jsonFile: 'json/history.json' },
-        { id: 'englishButton', name: '英単語', jsonFile: 'json/english.json' }
+        { id: 'englishButton', name: '原形、過去形、過去分詞形', jsonFile: 'json/english.json' }
     ];
 
     subjects.forEach(subject => {
