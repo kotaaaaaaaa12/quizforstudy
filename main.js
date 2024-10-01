@@ -12,18 +12,19 @@ document.addEventListener('DOMContentLoaded', () => {
 function displaySubjectButtons() {
     const subjectButtons = document.getElementById('subjectButtons');
     const subjects = [
-        { id: 'kanjiButton', name: '漢字', json: 'json/kanji.json' },
-        { id: 'kojiseigoButton', name: '古事成語', json: 'json/kojiseigo.json' },
-        { id: 'vividWordsButton', name: '語感の豊かな言葉', json: 'json/vivid_words.json' },
-        { id: 'mathButton', name: '数学', json: 'json/math.json' },
-        { id: 'elementButton', name: '元素記号', json: 'json/element.json' },
-        { id: 'chemicalFormulaButton', name: '化学式', json: 'json/chemical_formula.json' },
-        { id: 'chemicalReactionButton', name: '化学反応式', json: 'json/chemical_reaction.json' },
-        { id: 'chemicalTermsButton', name: '化学の用語', json: 'json/chemical_terms.json' },
-        { id: 'stratumTermsButton', name: '地層の用語', json: 'json/stratum_terms.json' },
-        { id: 'geographyButton', name: '地理', json: 'json/geography.json' },
-        { id: 'historyButton', name: '歴史', json: 'json/history.json' },
-        { id: 'englishButton', name: '英単語', json: 'json/english.json' }
+        { id: 'kanjiWritingButton', name: '漢字書き', jsonFile: 'json/kanji_writing.json' },
+        { id: 'kanjiReadingButton', name: '漢字読み', jsonFile: 'json/kanji_reading.json' },
+        { id: 'kojiseigoButton', name: '古事成語', jsonFile: 'json/kojiseigo.json' },
+        { id: 'languageButton', name: '語感の豊かな言葉', jsonFile: 'json/vivid_words.json' },
+        { id: 'mathButton', name: '数学', jsonFile: 'json/math.json' },
+        { id: 'elementButton', name: '元素記号', jsonFile: 'json/element.json' },
+        { id: 'chemicalFormulaButton', name: '化学式', jsonFile: 'json/chemical_formula.json' },
+        { id: 'chemicalReactionButton', name: '化学反応式', jsonFile: 'json/chemical_reaction.json' },
+        { id: 'chemicalTermsButton', name: '化学の用語', jsonFile: 'json/chemical_terms.json' },
+        { id: 'geologyTermsButton', name: '地層の用語', jsonFile: 'json/geology_terms.json' },
+        { id: 'geographyButton', name: '地理', jsonFile: 'json/geography.json' },
+        { id: 'historyButton', name: '歴史', jsonFile: 'json/history.json' },
+        { id: 'englishButton', name: '英単語', jsonFile: 'json/english.json' }
     ];
 
     subjects.forEach(subject => {
@@ -31,7 +32,7 @@ function displaySubjectButtons() {
         button.id = subject.id;
         button.textContent = subject.name;
         button.addEventListener('click', () => {
-            fetchQuestions(subject.json);
+            fetchQuestions(subject.jsonFile);
             subjectButtons.style.display = 'none';
             document.getElementById('questionCountSection').style.display = 'block';
         });
