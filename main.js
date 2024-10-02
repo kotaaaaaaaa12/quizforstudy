@@ -55,10 +55,18 @@ function fetchQuestions(jsonFile) {
 
 document.getElementById('startQuiz').addEventListener('click', () => {
     const numQuestions = parseInt(document.getElementById('numQuestions').value);
+    const maxQuestions = quizData.length;
+
     if (numQuestions < 1) {
         alert('問題数は1以上にしてください。');
         return;
     }
+
+    if (numQuestions > maxQuestions) {
+        alert(`問題数は最大${maxQuestions}です。`);
+        return;
+    }
+
     startTime = new Date();
     correctAnswers = 0;
     document.getElementById('questionCountSection').style.display = 'none';
