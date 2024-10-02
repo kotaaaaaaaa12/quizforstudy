@@ -156,6 +156,8 @@ function finishQuiz() {
     if (mistakeQuestions.length > 0) {
         document.getElementById('retryMistakes').style.display = 'block';
         document.getElementById('retryMistakes').onclick = function() {
+            correctAnswers = 0;
+            startTime = new Date();
             startQuiz(mistakeQuestions);
         };
     } else {
