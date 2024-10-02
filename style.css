@@ -1,7 +1,7 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #e0f7fa; /* 明るい水色の背景 */
-    color: #333; /* ダークグレーのテキスト */
+    background-color: #aeeeee;
+    color: #333;
     margin: 0;
     padding: 0;
 }
@@ -10,33 +10,45 @@ body {
     max-width: 600px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #ffffff; /* 白い背景 */
+    background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 軽い影 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     text-align: center;
-    color: #00796b; /* 深い水色 */
+    color: #00796b;
 }
 
 label {
     font-size: 1.2em;
 }
 
-input[type="number"] {
-    width: 50px;
-    padding: 5px;
-    margin-left: 10px;
-    border: 1px solid #00796b; /* 深い水色のボーダー */
+input[type="number"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #00796b;
     border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    background-color: #e0f7fa;
+    color: #333;
+    transition: border-color 0.3s;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus {
+    border-color: #004d40;
+    outline: none;
 }
 
 button {
     padding: 10px 15px;
     margin: 10px 5px;
-    background-color: #00796b; /* 深い水色のボタン */
-    color: white; /* 白いテキスト */
+    background-color: #00796b;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -45,7 +57,7 @@ button {
 }
 
 button:hover {
-    background-color: #004d40; /* 濃い水色 */
+    background-color: #004d40;
 }
 
 #quizContainer {
@@ -53,7 +65,7 @@ button:hover {
     padding: 15px;
     border: 1px solid #00796b;
     border-radius: 5px;
-    background-color: #e0f2f1; /* 薄い水色 */
+    background-color: #e0f2f1;
 }
 
 .feedback {
@@ -62,22 +74,22 @@ button:hover {
 }
 
 .correct {
-    color: #388e3c; /* 緑色 */
+    color: #388e3c;
 }
 
 .incorrect {
-    color: #d32f2f; /* 赤色 */
+    color: #d32f2f;
 }
 
 .correct-answer {
     margin-top: 5px;
     font-style: italic;
-    color: #f57c00; /* オレンジ色 */
+    color: #f57c00;
 }
 
 #stats {
     margin-top: 20px;
     padding: 10px;
-    background-color: #e0f7fa;
+    background-color: #b2fef7;
     border-radius: 5px;
 }
