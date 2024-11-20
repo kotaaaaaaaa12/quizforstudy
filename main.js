@@ -12,19 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function displaySubjectButtons() {
     const subjectButtons = document.getElementById('subjectButtons');
     const subjects = [
-        { id: 'kanjiWritingButton', name: '漢字書き', jsonFile: 'json/1.json' },
-        { id: 'kanjiReadingButton', name: '漢字読み', jsonFile: 'json/2.json' },
-        { id: 'kojiseigoButton', name: '四字熟語', jsonFile: 'json/3.json' },
-        { id: 'languageButton', name: '英語の前置詞', jsonFile: 'json/4.json' },
-        { id: 'mathButton', name: '数学', jsonFile: 'json/5.json' },
-        { id: 'elementButton', name: '元素記号', jsonFile: 'json/6.json' },
-        { id: 'chemicalFormulaButton', name: '化学式', jsonFile: 'json/7.json' },
-        { id: 'chemicalReactionButton', name: '化学反応式', jsonFile: 'json/8.json' },
-        { id: 'chemicalTermsButton', name: '化学の用語', jsonFile: 'json/9.json' },
-        { id: 'geologyTermsButton', name: '地層の用語', jsonFile: 'json/10.json' },
-        { id: 'geographyButton', name: '地理', jsonFile: 'json/11.json' },
-        { id: 'historyButton', name: '歴史', jsonFile: 'json/12.json' },
-        { id: 'englishButton', name: '原形、過去形、過去分詞形', jsonFile: 'json/13.json' }
+        { id: 'yojijyukugo', name: '四字熟語', jsonFile: 'json/1.json' },
     ];
 
     subjects.forEach(subject => {
