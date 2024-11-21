@@ -1,0 +1,290 @@
+[
+  {
+    "word": "かかる",
+    "translation": "cost"
+  },
+  {
+    "word": "切る",
+    "translation": "cut"
+  },
+  {
+    "word": "うつ",
+    "translation": "hit"
+  },
+  {
+    "word": "...させてやる",
+    "translation": "let"
+  },
+  {
+    "word": "置く",
+    "translation": "put"
+  },
+  {
+    "word": "読む",
+    "translation": "read"
+  },
+  {
+    "word": "設定する",
+    "translation": "set"
+  },
+  {
+    "word": "...になる",
+    "translation": "become"
+  },
+  {
+    "word": "来る",
+    "translation": "come"
+  },
+  {
+    "word": "走る",
+    "translation": "run"
+  },
+  {
+    "word": "持ってくる",
+    "translation": "brought"
+  },
+  {
+    "word": "建てる",
+    "translation": "built"
+  },
+  {
+    "word": "買う",
+    "translation": "bought"
+  },
+  {
+    "word": "つかまえる",
+    "translation": "caught"
+  },
+  {
+    "word": "感じる",
+    "translation": "felt"
+  },
+  {
+    "word": "たたかう",
+    "translation": "fought"
+  },
+  {
+    "word": "見つける",
+    "translation": "found"
+  },
+  {
+    "word": "忘れる",
+    "translation": "forgot,forgotten"
+  },
+  {
+    "word": "得る",
+    "translation": "got,gotten"
+  },
+  {
+    "word": "持っている",
+    "translation": "had"
+  },
+  {
+    "word": "聞く",
+    "translation": "heard"
+  },
+  {
+    "word": "持つ、つかむ",
+    "translation": "held"
+  },
+  {
+    "word": "保つ",
+    "translation": "kept"
+  },
+  {
+    "word": "導く",
+    "translation": "led"
+  },
+  {
+    "word": "出発する",
+    "translation": "left"
+  },
+  {
+    "word": "貸す",
+    "translation": "lent"
+  },
+  {
+    "word": "失う",
+    "translation": "lost"
+  },
+  {
+    "word": "作る",
+    "translation": "made"
+  },
+  {
+    "word": "意味する",
+    "translation": "meant"
+  },
+  {
+    "word": "会う",
+    "translation": "met"
+  },
+  {
+    "word": "払う",
+    "translation": "paid"
+  },
+  {
+    "word": "言う",
+    "translation": "said"
+  },
+  {
+    "word": "売る",
+    "translation": "sold"
+  },
+  {
+    "word": "送る",
+    "translation": "sent"
+  },
+  {
+    "word": "撃つ、射る",
+    "translation": "shot"
+  },
+  {
+    "word": "すわる",
+    "translation": "sat"
+  },
+  {
+    "word": "眠る",
+    "translation": "slept"
+  },
+  {
+    "word": "過ごす",
+    "translation": "spent"
+  },
+  {
+    "word": "立っている",
+    "translation": "stood"
+  },
+  {
+    "word": "教える",
+    "translation": "taught"
+  },
+  {
+    "word": "話す",
+    "translation": "told"
+  },
+  {
+    "word": "思う",
+    "translation": "thought"
+  },
+  {
+    "word": "理解する",
+    "translation": "understood"
+  },
+  {
+    "word": "勝ち取る",
+    "translation": "won"
+  },
+  {
+    "word": "...である。...にいる",
+    "translation": "been"
+  },
+  {
+    "word": "始める",
+    "translation": "begun"
+  },
+  {
+    "word": "壊す",
+    "translation": "broken"
+  },
+  {
+    "word": "選ぶ",
+    "translation": "chosen"
+  },
+  {
+    "word": "する",
+    "translation": "done"
+  },
+  {
+    "word": "描く",
+    "translation": "drawn"
+  },
+  {
+    "word": "飲む",
+    "translation": "drunk"
+  },
+  {
+    "word": "食べる",
+    "translation": "eaten"
+  },
+  {
+    "word": "落ちる",
+    "translation": "fallen"
+  },
+  {
+    "word": "飛ぶ",
+    "translation": "flown"
+  },
+  {
+    "word": "凍る",
+    "translation": "frozen"
+  },
+  {
+    "word": "与える",
+    "translation": "given"
+  },
+  {
+    "word": "行く",
+    "translation": "gone"
+  },
+  {
+    "word": "成長する",
+    "translation": "grown"
+  },
+  {
+    "word": "知っている",
+    "translation": "known"
+  },
+  {
+    "word": "間違える",
+    "translation": "mistaken"
+  },
+  {
+    "word": "乗る",
+    "translation": "ridden"
+  },
+  {
+    "word": "のぼる",
+    "translation": "risen"
+  },
+  {
+    "word": "見る",
+    "translation": "seen"
+  },
+  {
+    "word": "見せる",
+    "translation": "shown"
+  },
+  {
+    "word": "歌う",
+    "translation": "sung"
+  },
+  {
+    "word": "話す",
+    "translation": "spoken"
+  },
+  {
+    "word": "盗む",
+    "translation": "stolen"
+  },
+  {
+    "word": "泳ぐ",
+    "translation": "swum"
+  },
+  {
+    "word": "持っていく",
+    "translation": "taken"
+  },
+  {
+    "word": "投げる",
+    "translation": "thrown"
+  },
+  {
+    "word": "着ている",
+    "translation": "worn"
+  },
+  {
+    "word": "書く",
+    "translation": "written"
+  }
+]
