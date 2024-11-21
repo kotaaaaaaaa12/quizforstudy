@@ -13,6 +13,7 @@ function displaySubjectButtons() {
     const subjectButtons = document.getElementById('subjectButtons');
     const subjects = [
         { id: 'yojijyukugo', name: '四字熟語', jsonFile: 'json/1.json' },
+        { id: 'kakobunshi', name: '過去分詞', jsonFile: 'json/2.json' },
     ];
 
     subjects.forEach(subject => {
