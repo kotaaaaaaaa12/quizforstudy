@@ -30,7 +30,12 @@ function displaySubjectButtons() {
 
 function fetchQuestions(jsonFile) {
     fetch(jsonFile)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTPエラー: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
             quizData = data;
             document.getElementById('maxQuestions').textContent = quizData.length;
@@ -38,6 +43,7 @@ function fetchQuestions(jsonFile) {
         })
         .catch(error => {
             console.error('エラーが発生しました:', error);
+            alert('データの取得に失敗しました。');
         });
 }
 
@@ -112,7 +118,10 @@ function checkAnswer(correctAnswer) {
     const correctSound = document.getElementById('correctSound');
     const incorrectSound = document.getElementById('incorrectSound');
 
-    if (answerInput === correctAnswer) {
+    // カンマで区切られた正解を配列化
+    const correctAnswersArray = correctAnswer.split(',').map(answer => answer.trim());
+
+    if (correctAnswersArray.includes(answerInput)) {
         feedback.textContent = '⭕';
         feedback.classList.add('correct');
         correctAnswers++;
@@ -124,7 +133,7 @@ function checkAnswer(correctAnswer) {
 
         const correctAnswerElement = document.createElement('div');
         correctAnswerElement.classList.add('correct-answer');
-        correctAnswerElement.textContent = `正しい答え: ${correctAnswer}`;
+        correctAnswerElement.textContent = `正しい答え: ${correctAnswersArray.join(' または ')}`;
         document.querySelector('.question').appendChild(correctAnswerElement);
 
         mistakeQuestions.push(currentQuestions[currentIndex]);
