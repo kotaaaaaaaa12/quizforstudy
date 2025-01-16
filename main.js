@@ -12,9 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function displaySubjectButtons() {
     const subjectButtons = document.getElementById('subjectButtons');
     const subjects = [
-        { id: 'yojijyukugo', name: '四字熟語', jsonFile: 'json/1.json' },
-        { id: 'kakobunshi', name: '過去分詞', jsonFile: 'json/2.json' },
-        { id: 'history', name: '歴史', jsonFile: 'json/3.json' },
+        { id: 'hyakuninissyu', name: '百人一首', jsonFile: 'json/1.json' }
     ];
 
     subjects.forEach(subject => {
