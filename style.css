@@ -101,16 +101,3 @@ button:hover {
     background-color: #fff;
     border-radius: 5px;
 }
-
-.draw-container {
-    margin: 20px 0;
-}
-
-#drawCanvas {
-    border: 1px solid #008000;
-}
-
-#recognizedText {
-    font-weight: bold;
-    color: #008000;
-}
