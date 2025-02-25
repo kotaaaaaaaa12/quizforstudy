@@ -7,7 +7,6 @@ let startTime, endTime;
 
 document.addEventListener('DOMContentLoaded', () => {
     displaySubjectButtons();
-    setupCanvas();
 });
 
 function displaySubjectButtons() {
@@ -25,6 +24,7 @@ function displaySubjectButtons() {
             fetchQuestions(subject.jsonFile);
             subjectButtons.style.display = 'none';
             document.getElementById('questionCountSection').style.display = 'block';
+            document.getElementById('selectMessage').style.display = 'none'; // メッセージを非表示
         });
         subjectButtons.appendChild(button);
     });
@@ -120,6 +120,7 @@ function checkAnswer(correctAnswer) {
     const correctSound = document.getElementById('correctSound');
     const incorrectSound = document.getElementById('incorrectSound');
 
+    // カンマで区切られた正解を配列化
     const correctAnswersArray = correctAnswer.split(',').map(answer => answer.trim());
 
     if (correctAnswersArray.includes(answerInput)) {
@@ -181,46 +182,4 @@ function calculateTimeTaken(start, end) {
 function resetQuiz() {
     location.reload();
     displaySubjectButtons();
-}
-
-let canvas, ctx, drawing = false;
-
-function setupCanvas() {
-    canvas = document.getElementById('drawCanvas');
-    ctx = canvas.getContext('2d');
-    canvas.addEventListener('mousedown', startDrawing);
-    canvas.addEventListener('mousemove', draw);
-    canvas.addEventListener('mouseup', stopDrawing);
-    canvas.addEventListener('mouseleave', stopDrawing);
-
-    document.getElementById('clearCanvas').addEventListener('click', clearCanvas);
-    document.getElementById('recognizeButton').addEventListener('click', recognizeText);
-}
-
-function startDrawing(e) {
-    drawing = true;
-    ctx.beginPath();
-    ctx.moveTo(e.offsetX, e.offsetY);
-}
-
-function draw(e) {
-    if (!drawing) return;
-    ctx.lineTo(e.offsetX, e.offsetY);
-    ctx.stroke();
-}
-
-function stopDrawing() {
-    drawing = false;
-}
-
-function clearCanvas() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    document.getElementById('recognizedText').textContent = '';
-}
-
-function recognizeText() {
-    const recognizedText = "テスト認識結果";
-    document.getElementById('recognizedText').textContent = recognizedText;
-
-    document.getElementById('answerInput').value = recognizedText;
 }
