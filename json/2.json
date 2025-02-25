@@ -1,130 +1,130 @@
 [
     {
-        "question":"それは○○な結果だ。",
+        "question":"それは「いがい」な結果だ。",
         "answer":"意外"
     },
     {
-        "question":"係員○○の入室を禁ず。",
+        "question":"係員「いがい」の入室を禁ず。",
         "answer":"以外"
     },
     {
-        "question":"提案に○○を唱える。",
+        "question":"提案に「いぎ」を唱える。",
         "answer":"異議"
     },
     {
-        "question":"人生の○○を考える。",
+        "question":"人生の「いぎ」を考える。",
         "answer":"意義"
     },
     {
-        "question":"同音○○語を覚える。",
+        "question":"同音「いぎ」語を覚える。",
         "answer":"異義"
     },
     {
-        "question":"○○を正して整列する。",
+        "question":"「いぎ」を正して整列する。",
         "answer":"威儀"
     },
     {
-        "question":"相手の○○を聞く。",
+        "question":"相手の「いこう」を聞く。",
         "answer":"意向"
     },
     {
-        "question":"夏休み○○の計画。",
+        "question":"夏休み「いこう」の計画。",
         "answer":"以降"
     },
     {
-        "question":"新制度に○○する。",
+        "question":"新制度に「いこう」する。",
         "answer":"移行"
     },
     {
-        "question":"○○の強い人。",
+        "question":"「いし」の強い人。",
         "answer":"意志"
     },
     {
-        "question":"自分の○○を表明する。",
+        "question":"自分の「いし」を表明する。",
         "answer":"意思"
     },
     {
-        "question":"親の○○を継ぐ。",
+        "question":"親の「いし」を継ぐ。",
         "answer":"遺志"
     },
     {
-        "question":"○○気象が起こる。",
+        "question":"「いじょう」気象が起こる。",
         "answer":"異常"
     },
     {
-        "question":"エンジンの○○。",
+        "question":"エンジンの「いじょう」。",
         "answer":"異状"
     },
     {
-        "question":"三人○○六人未満。",
+        "question":"三人「いじょう」六人未満。",
         "answer":"以上"
     },
     {
-        "question":"○○検査を行う。",
+        "question":"「えいせい」検査を行う。",
         "answer":"衛生"
     },
     {
-        "question":"人口○○を打ち上げる。",
+        "question":"人口「えいせい」を打ち上げる。",
         "answer":"衛星"
     },
     {
-        "question":"○○な刃物で切る。",
+        "question":"「えいり」な刃物で切る。",
         "answer":"鋭利"
     },
     {
-        "question":"○○を目的とする企業。",
+        "question":"「えいり」を目的とする企業。",
         "answer":"営利"
     },
     {
-        "question":"問題の模範○○を見る。",
+        "question":"問題の模範「かいとう」を見る。",
         "answer":"解答"
     },
     {
-        "question":"要求に対して○○する。",
+        "question":"要求に対して「かいとう」する。",
         "answer":"回答"
     },
     {
-        "question":"冷凍食品を○○する。",
+        "question":"冷凍食品を「かいとう」する。",
         "answer":"解凍"
     },
     {
-        "question":"夜道を○○が照らす。",
+        "question":"夜道を「がいとう」が照らす。",
         "answer":"街灯"
     },
     {
-        "question":"○○で演説をする。",
+        "question":"「がいとう」で演説をする。",
         "answer":"街頭"
     },
     {
-        "question":"確かにそれに○○する。",
+        "question":"確かにそれに「がいとう」する。",
         "answer":"該当"
     },
     {
-        "question":"施設を一般に○○する。",
+        "question":"施設を一般に「かいほう」する。",
         "answer":"開放"
     },
     {
-        "question":"責任から○○される。",
+        "question":"責任から「かいほう」される。",
         "answer":"解放"
     },
     {
-        "question":"病気は○○に向かった。",
+        "question":"病気は「かいほう」に向かった。",
         "answer":"快方"
     },
     {
-        "question":"団体の○○を発行する。",
+        "question":"団体の「かいほう」を発行する。",
         "answer":"会報"
     },
     {
-        "question":"事件の○○に触れる。",
+        "question":"事件の「かくしん」に触れる。",
         "answer":"核心"
     },
     {
-        "question":"○○的な考え。",
+        "question":"「かくしん」的な考え。",
         "answer":"革新"
     },
     {
-        "question":"彼の成功を○○する。",
+        "question":"彼の成功を「かくしん」する。",
         "answer":"確信"
     }
 ]
