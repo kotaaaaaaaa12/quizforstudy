@@ -11,19 +11,10 @@
         <h1>ランダムクイズ</h1>
         <h2>※一度ノートに書いてから答えるのがおすすめです。</h2>
         
-        <!-- 手書き入力エリア -->
-        <div class="draw-container">
-            <canvas id="drawCanvas" width="300" height="150" style="border: 1px solid #008000;"></canvas>
-            <button id="clearCanvas">クリア</button>
-            <br><br>
-            <button id="recognizeButton">文字認識</button>
-            <br><br>
-            <p>認識された文字: <span id="recognizedText"></span></p>
-        </div>
-
-        <!-- 既存のテーマ選択とクイズセクション -->
         <div id="subjectSelection">
-            <h2>テーマを選択してください:</h2>
+            <div id="selectMessage">
+                <h2>テーマを選択してください:</h2>
+            </div>
             <div id="subjectButtons"></div>
         </div>
         
