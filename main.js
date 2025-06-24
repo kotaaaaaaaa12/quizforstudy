@@ -23,7 +23,7 @@ function displaySubjectButtons() {
             fetchQuestions(subject.jsonFile);
             subjectButtons.style.display = 'none';
             document.getElementById('questionCountSection').style.display = 'block';
-            document.getElementById('selectMessage').style.display = 'none'; // メッセージを非表示
+            document.getElementById('selectMessage').style.display = 'none';
         });
         subjectButtons.appendChild(button);
     });
@@ -103,7 +103,7 @@ function renderQuestion() {
         questionElement.innerHTML = `
             <p>${currentIndex + 1}. ${questionItem.question}</p>
             <input type="text" class="answer-input" id="answerInput">
-            <button onclick="checkAnswer('${questionItem.answer}')">解答</button>
+            <button id="answerButton" onclick="checkAnswer('${questionItem.answer}')">解答</button>
         `;
         quizContainer.appendChild(questionElement);
     } else {
@@ -112,6 +112,9 @@ function renderQuestion() {
 }
 
 function checkAnswer(correctAnswer) {
+    const answerButton = document.getElementById('answerButton');
+    if (answerButton) answerButton.disabled = true;
+
     const answerInput = document.getElementById('answerInput').value.trim();
     const feedback = document.createElement('div');
     feedback.classList.add('feedback');
@@ -119,7 +122,6 @@ function checkAnswer(correctAnswer) {
     const correctSound = document.getElementById('correctSound');
     const incorrectSound = document.getElementById('incorrectSound');
 
-    // カンマで区切られた正解を配列化
     const correctAnswersArray = correctAnswer.split(',').map(answer => answer.trim());
 
     if (correctAnswersArray.includes(answerInput)) {
