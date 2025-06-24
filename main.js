@@ -5,12 +5,23 @@ let currentIndex = 0;
 let correctAnswers = 0;
 let startTime, endTime;
 
+function normalize(str) {
+    return str
+      .trim()
+      .toLowerCase()
+      .replace(/[，、。・･]/g, ',')
+      .replace(/[\uff0c\uff0e\uff65]/g, ',')
+      .replace(/\s+/g, '');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     displaySubjectButtons();
 });
 
 function displaySubjectButtons() {
     const subjectButtons = document.getElementById('subjectButtons');
+    subjectButtons.style.display = 'block';  // 念のため表示ON
+
     const subjects = [
         { id: 'douonigigo', name: '同音異義語・同訓異字', jsonFile: 'json/1.json' },
         { id: 'history', name: '歴史', jsonFile: 'json/2.json' },
@@ -33,54 +44,34 @@ function displaySubjectButtons() {
 
 function fetchQuestions(jsonFile) {
     fetch(jsonFile)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTPエラー: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            quizData = data;
-            document.getElementById('maxQuestions').textContent = quizData.length;
-            document.getElementById('numQuestions').max = quizData.length;
-        })
-        .catch(error => {
-            console.error('エラーが発生しました:', error);
-            alert('データの取得に失敗しました。');
-        });
+      .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(data => {
+        quizData = data;
+        document.getElementById('maxQuestions').textContent = quizData.length;
+        document.getElementById('numQuestions').max = quizData.length;
+      })
+      .catch(e => { console.error(e); alert('データ取得失敗'); });
 }
 
 document.getElementById('startQuiz').addEventListener('click', () => {
-    const numQuestions = parseInt(document.getElementById('numQuestions').value);
-    const maxQuestions = quizData.length;
-
-    if (numQuestions < 1) {
-        alert('問題数は1以上にしてください。');
+    const numQuestions = +document.getElementById('numQuestions').value;
+    if (numQuestions < 1 || numQuestions > quizData.length) {
+        alert(`問題数は1〜${quizData.length}で指定してください`);
         return;
     }
-
-    if (numQuestions > maxQuestions) {
-        alert(`問題数は最大${maxQuestions}です。`);
-        return;
-    }
-
     startTime = new Date();
     correctAnswers = 0;
     document.getElementById('questionCountSection').style.display = 'none';
     startQuiz(selectRandomQuestions(numQuestions));
 });
 
-function selectRandomQuestions(numQuestions) {
-    const selectedQuestions = [];
-    const usedIndices = new Set();
-    while (selectedQuestions.length < numQuestions) {
-        const randomIndex = Math.floor(Math.random() * quizData.length);
-        if (!usedIndices.has(randomIndex)) {
-            usedIndices.add(randomIndex);
-            selectedQuestions.push(quizData[randomIndex]);
-        }
+function selectRandomQuestions(n) {
+    const ret=[], used=new Set();
+    while (ret.length < n) {
+        const i = Math.floor(Math.random()*quizData.length);
+        if (!used.has(i)){ used.add(i); ret.push(quizData[i]); }
     }
-    return selectedQuestions;
+    return ret;
 }
 
 function startQuiz(questions) {
@@ -88,62 +79,54 @@ function startQuiz(questions) {
     mistakeQuestions = [];
     currentIndex = 0;
     document.getElementById('quizContainer').innerHTML = '';
-    document.getElementById('retryMistakes').style.display = 'none';
-    document.getElementById('resetQuiz').style.display = 'none';
-    document.getElementById('stats').style.display = 'none';
+    ['retryMistakes','resetQuiz','stats'].forEach(id=>
+      document.getElementById(id).style.display='none'
+    );
     renderQuestion();
 }
 
 function renderQuestion() {
-    const quizContainer = document.getElementById('quizContainer');
-    quizContainer.innerHTML = '';
+    const c = document.getElementById('quizContainer');
+    c.innerHTML = '';
 
     if (currentIndex < currentQuestions.length) {
-        const questionItem = currentQuestions[currentIndex];
-        const questionElement = document.createElement('div');
-        questionElement.classList.add('question');
-        questionElement.innerHTML = `
-            <p>${currentIndex + 1}. ${questionItem.question}</p>
-            <input type="text" class="answer-input" id="answerInput">
-            <button id="answerButton" onclick="checkAnswer('${questionItem.answer}')">解答</button>
+        const qi = currentQuestions[currentIndex];
+        const div = document.createElement('div');
+        div.className = 'question';
+        div.innerHTML = `
+          <p>${currentIndex+1}. ${qi.question}</p>
+          <input type="text" class="answer-input" id="answerInput">
+          <button id="answerButton" onclick="checkAnswer('${qi.answer}')">解答</button>
         `;
-        quizContainer.appendChild(questionElement);
-    } else {
-        finishQuiz();
-    }
+        c.appendChild(div);
+    } else finishQuiz();
 }
 
 function checkAnswer(correctAnswer) {
-    const answerButton = document.getElementById('answerButton');
-    if (answerButton) answerButton.disabled = true;
+    const btn = document.getElementById('answerButton');
+    if (btn) btn.disabled=true;
 
-    const answerInput = document.getElementById('answerInput').value.trim();
+    const ai = document.getElementById('answerInput');
+    const answerInput = ai.value;
     const feedback = document.createElement('div');
-    feedback.classList.add('feedback');
+    feedback.className='feedback';
 
-    const correctSound = document.getElementById('correctSound');
-    const incorrectSound = document.getElementById('incorrectSound');
+    const arr = correctAnswer.split(',').map(a => normalize(a));
+    const inp = normalize(answerInput);
 
-    const correctAnswersArray = correctAnswer.split(',').map(answer => answer.trim());
-
-    if (correctAnswersArray.includes(answerInput)) {
-        feedback.textContent = '⭕';
-        feedback.classList.add('correct');
+    if (arr.includes(inp)) {
+        feedback.textContent='⭕'; feedback.classList.add('correct');
         correctAnswers++;
-        correctSound.play();
+        document.getElementById('correctSound')?.play();
     } else {
-        feedback.textContent = '❌';
-        feedback.classList.add('incorrect');
-        incorrectSound.play();
-
-        const correctAnswerElement = document.createElement('div');
-        correctAnswerElement.classList.add('correct-answer');
-        correctAnswerElement.textContent = `正しい答え: ${correctAnswersArray.join(' または ')}`;
-        document.querySelector('.question').appendChild(correctAnswerElement);
-
+        feedback.textContent='❌'; feedback.classList.add('incorrect');
+        document.getElementById('incorrectSound')?.play();
+        const ca = document.createElement('div');
+        ca.className='correct-answer';
+        ca.textContent = `正しい答え: ${correctAnswer.replace(/,/g, ' or ')}`;
+        document.querySelector('.question').appendChild(ca);
         mistakeQuestions.push(currentQuestions[currentIndex]);
     }
-
     document.querySelector('.question').appendChild(feedback);
     currentIndex++;
     setTimeout(renderQuestion, 2000);
@@ -151,38 +134,37 @@ function checkAnswer(correctAnswer) {
 
 function finishQuiz() {
     endTime = new Date();
-    const timeTaken = calculateTimeTaken(startTime, endTime);
+    const diff = Math.floor((endTime-startTime)/1000);
+    const timeTaken = `${Math.floor(diff/60)}分${diff%60}秒`;
 
-    const quizContainer = document.getElementById('quizContainer');
-    quizContainer.innerHTML = '<p>クイズが終了しました。</p>';
+    const qc = document.getElementById('quizContainer');
+    qc.innerHTML = '<p>クイズが終了しました。</p>';
 
-    const statsContainer = document.getElementById('stats');
-    statsContainer.style.display = 'block';
-    statsContainer.innerHTML = `
-        <p>正答率: ${correctAnswers}/${currentQuestions.length}</p>
-        <p>掛かった時間: ${timeTaken}</p>
+    const stats = document.getElementById('stats');
+    stats.style.display='block';
+    stats.innerHTML = `
+      <p>正答率: ${correctAnswers}/${currentQuestions.length}</p>
+      <p>時間: ${timeTaken}</p>
     `;
 
-    if (mistakeQuestions.length > 0) {
-        document.getElementById('retryMistakes').style.display = 'block';
-        document.getElementById('retryMistakes').onclick = function() {
-            correctAnswers = 0;
-            startTime = new Date();
+    if (mistakeQuestions.length) {
+        const btn = document.getElementById('retryMistakes');
+        btn.style.display='inline-block';
+        btn.onclick = () => {
+            correctAnswers=0;
+            startTime=new Date();
             startQuiz(mistakeQuestions);
         };
     } else {
-        document.getElementById('resetQuiz').style.display = 'block';
+        document.getElementById('resetQuiz').style.display='inline-block';
     }
 }
 
-function calculateTimeTaken(start, end) {
-    const timeDiff = end - start;
-    const minutes = Math.floor(timeDiff / 1000 / 60);
-    const seconds = Math.floor((timeDiff / 1000) % 60);
-    return `${minutes}分${seconds}秒`;
+function calculateTimeTaken(s,e){
+    const diff=(e-s)/1000|0;
+    return `${Math.floor(diff/60)}分${diff%60}秒`;
 }
 
 function resetQuiz() {
     location.reload();
-    displaySubjectButtons();
 }
