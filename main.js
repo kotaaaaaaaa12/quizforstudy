@@ -25,7 +25,8 @@ function displaySubjectButtons() {
     const subjects = [
         { id: 'douonigigo', name: '同音異義語・同訓異字', jsonFile: 'json/1.json' },
         { id: 'history', name: '歴史', jsonFile: 'json/2.json' },
-        { id: 'koumin', name: '公民', jsonFile: 'json/3.json' }
+        { id: 'koumin', name: '公民', jsonFile: 'json/3.json' },
+        { id: 'word', name: '英単語', jsonFile: 'json/4.json' }
     ];
 
     subjects.forEach(subject => {
