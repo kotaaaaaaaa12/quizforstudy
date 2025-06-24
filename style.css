@@ -1,92 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;700&display=swap');
+
 body {
-    background-color: #f5f5dc;
-    font-family: 'Noto Serif JP', serif;
+    background: linear-gradient(to bottom, #a2d4f7, #ffffff); /* 空〜雲みたいなグラデ */
+    font-family: 'Kiwi Maru', 'Noto Sans JP', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/white-wave.png'); /* ほんのり波模様 */
 }
 
 .container {
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    width: 800px; /* Increased width */
-    border: 5px solid #008000;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 128, 255, 0.2);
+    width: 800px;
+    border: 4px solid #29b6f6; /* 空色 */
+    backdrop-filter: blur(6px);
 }
 
 h1 {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 28px;
+    font-family: 'Kiwi Maru', serif;
+    font-size: 34px;
     margin-bottom: 20px;
-    color: #008000;
+    color: #0277bd;
+    text-shadow: 1px 1px 2px #b3e5fc;
 }
 
 label {
     display: block;
-    margin-top: 10px;
-    font-size: 14px;
-    color: #008000;
-    font-family: 'Noto Serif JP', serif;
+    margin-top: 14px;
+    font-size: 16px;
+    color: #01579b;
+    font-family: 'Kiwi Maru', serif;
 }
 
 input[type="number"],
 input[type="text"] {
     width: calc(100% - 20px);
-    padding: 10px;
+    padding: 12px;
     margin: 10px 0;
-    border: 1px solid #008000;
-    border-radius: 5px;
-    box-sizing: border-box;
+    border: 2px solid #4fc3f7;
+    border-radius: 8px;
+    background-color: #e1f5fe;
+    color: #01579b;
     font-size: 1em;
-    background-color: #fff;
-    color: #333;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, background-color 0.3s;
+    font-family: 'Kiwi Maru', serif;
 }
 
 input[type="number"]:focus,
 input[type="text"]:focus {
-    border-color: #004d40;
+    border-color: #0288d1;
+    background-color: #b3e5fc;
     outline: none;
 }
 
 button {
-    background-color: #1e90ff;
+    background-color: #4fc3f7;
     color: #fff;
-    border: 1px solid #008000;
-    padding: 10px 20px;
+    border: none;
+    padding: 12px 24px;
     border-radius: 10px;
     cursor: pointer;
-    margin-right: 10px;
-    font-family: 'Noto Serif JP', serif;
+    margin: 10px 5px;
+    font-size: 1em;
+    transition: background-color 0.3s;
+    font-family: 'Kiwi Maru', serif;
 }
 
 button:hover {
-    background-color: #0073e6;
+    background-color: #0288d1;
 }
 
 #quizContainer {
     margin-top: 20px;
-    padding: 15px;
-    border: 1px solid #008000;
-    border-radius: 5px;
-    background-color: #fff;
+    padding: 20px;
+    border: 2px dashed #4fc3f7;
+    border-radius: 10px;
+    background-color: #ffffffdd;
 }
 
 .feedback {
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 12px;
 }
 
 .correct {
-    color: #388e3c;
+    color: #2e7d32;
 }
 
 .incorrect {
-    color: #d32f2f;
+    color: #c62828;
 }
 
 .correct-answer {
@@ -96,8 +104,9 @@ button:hover {
 }
 
 #stats {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 5px;
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #e0f7fa;
+    border-radius: 8px;
+    border: 1px solid #81d4fa;
 }
