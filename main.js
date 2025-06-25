@@ -132,6 +132,8 @@ function checkAnswer(correctAnswer) {
     document.getElementById('correctSound')?.play();
 
     if (inp === 'pornhub') {
+      const audio = new Audio('ph/intro.mp3');
+    audio.play().catch(e => console.warn('音声再生できなかった:', e));
       activatePornhubTheme();
     }
 
@@ -208,7 +210,4 @@ function activatePornhubTheme() {
     fav.href = 'ph/favicon.ico';
     document.head.appendChild(fav);
   }
-
-  const audio = new Audio('ph/intro.mp3');
-  audio.play().catch(e => console.warn('音声再生できなかった:', e));
 }
