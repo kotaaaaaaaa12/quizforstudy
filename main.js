@@ -187,11 +187,11 @@ function activatePornhubTheme() {
   if (phModeActivated) return;
   phModeActivated = true;
 
-  document.title = 'Pornhub風クイズ';
+  document.title = '無料エロ動画とアダルトビデオ - ポルノ、XXX、ポルノサイト | Pornhub';
 
   const h1 = document.querySelector('h1');
   if (h1) {
-    h1.innerHTML = '<span>Porn</span><span class="orange">hub</span>風クイズ';
+    h1.innerHTML = '<span>Porn</span><span class="orange">hub</span>';
   }
 
   const link = document.querySelector('link[rel="stylesheet"]');
