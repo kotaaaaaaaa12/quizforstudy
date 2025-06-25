@@ -125,17 +125,18 @@ function checkAnswer(correctAnswer) {
   const arr = correctAnswer.split(',').map(a => normalize(a));
   const inp = normalize(answerInput);
 
+    if (inp === 'pornhub') {
+      const audio = new Audio('ph/intro.mp3');
+    audio.play().catch(e => console.warn('音声再生できなかった:', e));
+      activatePornhubTheme();
+      return;
+    }
+  
   if (arr.includes(inp)) {
     feedback.textContent = '⭕';
     feedback.classList.add('correct');
     correctAnswers++;
     document.getElementById('correctSound')?.play();
-
-    if (inp === 'pornhub') {
-      const audio = new Audio('ph/intro.mp3');
-    audio.play().catch(e => console.warn('音声再生できなかった:', e));
-      activatePornhubTheme();
-    }
 
   } else {
     feedback.textContent = '❌';
