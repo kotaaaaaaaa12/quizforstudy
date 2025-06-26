@@ -8,8 +8,8 @@ let startTime, endTime;
 let phModeActivated = false;
 let phModeDeactivated = false;
 
-let originalStylesheetHref = '';
-let originalFaviconHref = '';
+let originalStylesheetHref = 'style.css';
+let originalFaviconHref = 'favicon.ico';
 const originalTitle = 'ランダムクイズ';
 const originalH1 = 'ランダムクイズ';
 
