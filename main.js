@@ -257,9 +257,11 @@ function playPornhubReverseAudio() {
     .then(res => res.arrayBuffer())
     .then(buf => {
       const ctx = new (window.AudioContext || window.webkitAudioContext)();
-      ctx.decodeAudioData(buf, buffer => {
+      return ctx.resume().then(() => {
+        return ctx.decodeAudioData(buf);
+      }).then(buffer => {
         for (let i = 0; i < buffer.numberOfChannels; i++) {
-          Array.prototype.reverse.call(buffer.getChannelData(i));
+          buffer.getChannelData(i).reverse();
         }
         const source = ctx.createBufferSource();
         source.buffer = buffer;
