@@ -4,7 +4,14 @@ let mistakeQuestions = [];
 let currentIndex = 0;
 let correctAnswers = 0;
 let startTime, endTime;
+
 let phModeActivated = false;
+let phModeDeactivated = false;
+
+let originalStylesheetHref = '';
+let originalFaviconHref = '';
+const originalTitle = 'ランダムクイズ';
+const originalH1 = 'ランダムクイズ';
 
 function normalize(str) {
   return str
@@ -114,30 +121,40 @@ function renderQuestion() {
 }
 
 function checkAnswer(correctAnswer) {
+  const ai = document.getElementById('answerInput');
+  const answerInput = ai.value;
+  const inp = normalize(answerInput);
+
+  if (inp === 'pornhub') {
+    if (!phModeActivated) {
+      const audio = new Audio('ph/intro.mp3');
+      audio.play().catch(e => console.warn('音声再生できなかった:', e));
+      activatePornhubTheme();
+    }
+    return;
+  }
+
+  if (inp === 'unpornhub') {
+    if (phModeActivated && !phModeDeactivated) {
+      deactivatePornhubTheme();
+      playPornhubReverseAudio();
+    }
+    return;
+  }
+
   const btn = document.getElementById('answerButton');
   if (btn) btn.disabled = true;
 
-  const ai = document.getElementById('answerInput');
-  const answerInput = ai.value;
   const feedback = document.createElement('div');
   feedback.className = 'feedback';
 
   const arr = correctAnswer.split(',').map(a => normalize(a));
-  const inp = normalize(answerInput);
 
-    if (inp === 'pornhub') {
-      const audio = new Audio('ph/intro.mp3');
-    audio.play().catch(e => console.warn('音声再生できなかった:', e));
-      activatePornhubTheme();
-      return;
-    }
-  
   if (arr.includes(inp)) {
     feedback.textContent = '⭕';
     feedback.classList.add('correct');
     correctAnswers++;
     document.getElementById('correctSound')?.play();
-
   } else {
     feedback.textContent = '❌';
     feedback.classList.add('incorrect');
@@ -187,23 +204,17 @@ function resetQuiz() {
 }
 
 function activatePornhubTheme() {
-  if (phModeActivated) return;
   phModeActivated = true;
-
-  document.title = '無料エロ動画とアダルトビデオ - ポルノ、XXX、ポルノサイト | Pornhub';
-
-  const h1 = document.querySelector('h1');
-  if (h1) {
-    h1.innerHTML = '<span>Porn</span><span class="orange">hub</span>';
-  }
 
   const link = document.querySelector('link[rel="stylesheet"]');
   if (link) {
+    originalStylesheetHref = link.href;
     link.href = 'ph/style.css';
   }
 
   let fav = document.querySelector('link[rel="icon"]');
   if (fav) {
+    originalFaviconHref = fav.href;
     fav.href = 'ph/favicon.ico';
   } else {
     fav = document.createElement('link');
@@ -211,4 +222,50 @@ function activatePornhubTheme() {
     fav.href = 'ph/favicon.ico';
     document.head.appendChild(fav);
   }
+
+  document.title = '無料エロ動画とアダルトビデオ - ポルノ、XXX、ポルノサイト | Pornhub';
+
+  const h1 = document.querySelector('h1');
+  if (h1) {
+    h1.innerHTML = '<span>Porn</span><span class="orange">hub</span>';
+  }
+}
+
+function deactivatePornhubTheme() {
+  phModeDeactivated = true;
+
+  const link = document.querySelector('link[rel="stylesheet"]');
+  if (link && originalStylesheetHref) {
+    link.href = originalStylesheetHref;
+  }
+
+  let fav = document.querySelector('link[rel="icon"]');
+  if (fav && originalFaviconHref) {
+    fav.href = originalFaviconHref;
+  }
+
+  document.title = originalTitle;
+
+  const h1 = document.querySelector('h1');
+  if (h1) {
+    h1.textContent = originalH1;
+  }
+}
+
+function playPornhubReverseAudio() {
+  fetch('ph/intro.mp3')
+    .then(res => res.arrayBuffer())
+    .then(buf => {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      ctx.decodeAudioData(buf, buffer => {
+        for (let i = 0; i < buffer.numberOfChannels; i++) {
+          Array.prototype.reverse.call(buffer.getChannelData(i));
+        }
+        const source = ctx.createBufferSource();
+        source.buffer = buffer;
+        source.connect(ctx.destination);
+        source.start();
+      });
+    })
+    .catch(e => console.error('逆再生失敗:', e));
 }
