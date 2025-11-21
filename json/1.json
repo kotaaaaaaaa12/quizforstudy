@@ -1,214 +1,138 @@
 [
   {
-    "question": "新しい「セイサク」をうち出す",
-    "answer": "政策"
+    "question": "「ヒナン」訓練を行う",
+    "answer": "避難"
   },
   {
-    "question": "彫刻の「セイサク」にとりかかる",
-    "answer": "制作"
+    "question": "不正を「ヒナン」する",
+    "answer": "非難"
   },
   {
-    "question": "機械の「セイサク」図",
-    "answer": "製作"
+    "question": "不眠「フキュウ」で完成",
+    "answer": "不休"
   },
   {
-    "question": "借金を「セイサン」した",
-    "answer": "清算"
+    "question": "「フキュウ」の名作",
+    "answer": "不朽"
   },
   {
-    "question": "運賃を「セイサン」した",
-    "answer": "精算"
+    "question": "一般に「フキュウ」する",
+    "answer": "普及"
   },
   {
-    "question": "製品を大量に「セイサン」する",
-    "answer": "生産"
+    "question": "「フシン」な点を問う",
+    "answer": "不審"
   },
   {
-    "question": "この勝負には「セイサン」がある",
-    "answer": "成算"
+    "question": "成績「フシン」に陥る",
+    "answer": "不振"
   },
   {
-    "question": "議長の「セイシ」もむだだった",
-    "answer": "制止"
+    "question": "相手への「フシン」感",
+    "answer": "不信"
   },
   {
-    "question": "時計の針は「セイシ」していた",
-    "answer": "静止"
+    "question": "「ヘイコウ」線をたどる",
+    "answer": "平行"
   },
   {
-    "question": "「ゼッタイ」安静の病人",
-    "answer": "絶対"
+    "question": "悪事に「ヘイコウ」した",
+    "answer": "閉口"
   },
   {
-    "question": "「ゼッタイ」絶命の危機",
-    "answer": "絶体"
+    "question": "「ホウフ」な資源",
+    "answer": "豊富"
   },
   {
-    "question": "代表者を「センコウ」する",
-    "answer": "選考"
+    "question": "今年の「ホウフ」を語る",
+    "answer": "抱負"
   },
   {
-    "question": "物理学を「センコウ」する",
-    "answer": "専攻"
+    "question": "「ホケン」所の検査",
+    "answer": "保健"
   },
   {
-    "question": "相手チームが「センコウ」する",
-    "answer": "先攻"
+    "question": "生命「ホケン」に入る",
+    "answer": "保険"
   },
   {
-    "question": "「ソウイ」工夫が大切だ",
-    "answer": "創意"
+    "question": "品質を「ホショウ」する",
+    "answer": "保証"
   },
   {
-    "question": "全員の「ソウイ」によって決定",
-    "answer": "総意"
+    "question": "安全「ホショウ」条約",
+    "answer": "保障"
   },
   {
-    "question": "両方の「ソウイ」点を見つける",
-    "answer": "相違"
+    "question": "損害を「ホショウ」する",
+    "answer": "補償"
   },
   {
-    "question": "「ソウゾウ」した通りの人",
-    "answer": "想像"
+    "question": "「ムジョウ」の喜び",
+    "answer": "無上"
   },
   {
-    "question": "天地を「ソウゾウ」した神",
-    "answer": "創造"
+    "question": "彼は「ムジョウ」な人だ",
+    "answer": "無情"
   },
   {
-    "question": "左右「タイショウ」の図形",
-    "answer": "対称"
+    "question": "「ムジョウ」観を説く",
+    "answer": "無常"
   },
   {
-    "question": "中学生を「タイショウ」とした本",
-    "answer": "対象"
+    "question": "「ヤセイ」の動物",
+    "answer": "野生"
   },
   {
-    "question": "彼とは「タイショウ」的な性格です",
-    "answer": "対照"
+    "question": "「ヤセイ」的な生き方",
+    "answer": "野性"
   },
   {
-    "question": "不利な「タイセイ」を立て直す",
-    "answer": "体勢"
+    "question": "富士山が「ユウシ」を現す",
+    "answer": "勇姿"
   },
   {
-    "question": "彼は見事に「タイセイ」した",
-    "answer": "大成"
+    "question": "歴戦の「ユウシ」",
+    "answer": "勇士"
   },
   {
-    "question": "社会の「タイセイ」に反対する",
-    "answer": "体制"
+    "question": "銀行の「ユウシ」",
+    "answer": "融資"
   },
   {
-    "question": "品物の「タイセイ」を調べる",
-    "answer": "耐性"
+    "question": "「ユウシュウ」な成績",
+    "answer": "優秀"
   },
   {
-    "question": "準備「タイセイ」を整える",
-    "answer": "態勢"
+    "question": "「ユウシュウ」の美を飾った",
+    "answer": "有終"
   },
   {
-    "question": "予防「チュウシャ」を受ける",
-    "answer": "注射"
+    "question": "電話で「ヨウケン」を話す",
+    "answer": "用件"
   },
   {
-    "question": "ここは「チュウシャ」禁止です",
-    "answer": "駐車"
+    "question": "「ヨウケン」を満たす",
+    "answer": "要件"
   },
   {
-    "question": "会費を「チョウシュウ」した",
-    "answer": "徴収"
+    "question": "話の「ヨウシ」をつかむ",
+    "answer": "要旨"
   },
   {
-    "question": "「チョウシュウ」は感動した",
-    "answer": "聴衆"
+    "question": "「ヨウシ」を気にする",
+    "answer": "容姿"
   },
   {
-    "question": "彼の責任を「ツイキュウ」する",
-    "answer": "追及"
+    "question": "答案「ヨウシ」を配る",
+    "answer": "用紙"
   },
   {
-    "question": "利潤を「ツイキュウ」する",
-    "answer": "追求"
+    "question": "地震を「ヨチ」する",
+    "answer": "予知"
   },
   {
-    "question": "永遠の真理を「ツイキュウ」する",
-    "answer": "追究"
-  },
-  {
-    "question": "「テイショク」処分を受けた",
-    "answer": "停職"
-  },
-  {
-    "question": "「テイショク」をさがす",
-    "answer": "定職"
-  },
-  {
-    "question": "マッチで「テンカ」する",
-    "answer": "点火"
-  },
-  {
-    "question": "責任を相手に「テンカ」する",
-    "answer": "転嫁"
-  },
-  {
-    "question": "食品の「テンカ」物を調べる",
-    "answer": "添加"
-  },
-  {
-    "question": "「ドウギ」を重んずる人だ",
-    "answer": "道義"
-  },
-  {
-    "question": "緊急「ドウギ」が提出される",
-    "answer": "動議"
-  },
-  {
-    "question": "「ドウギ」語を調べる",
-    "answer": "同義"
-  },
-  {
-    "question": "彼とその店に「ドウコウ」した",
-    "answer": "同行"
-  },
-  {
-    "question": "スキーの「ドウコウ」会",
-    "answer": "同好"
-  },
-  {
-    "question": "財界の「ドウコウ」を探った",
-    "answer": "動向"
-  },
-  {
-    "question": "年度「トウショ」の計画",
-    "answer": "当初"
-  },
-  {
-    "question": "新聞に「トウショ」する",
-    "answer": "投書"
-  },
-  {
-    "question": "「トクイ」な才能を発揮する",
-    "answer": "特異"
-  },
-  {
-    "question": "私の「トクイ」な種目です",
-    "answer": "得意"
-  },
-  {
-    "question": "「ネントウ」の挨拶",
-    "answer": "年頭"
-  },
-  {
-    "question": "「ネントウ」に置く",
-    "answer": "念頭"
-  },
-  {
-    "question": "意見を「ハンエイ」させる",
-    "answer": "反映"
-  },
-  {
-    "question": "城下町として「ハンエイ」",
-    "answer": "繁栄"
+    "question": "疑う「ヨチ」がない",
+    "answer": "余地"
   }
 ]
